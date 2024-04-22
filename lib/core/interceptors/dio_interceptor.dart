@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tmdb_movies/core/apis/api_class.dart';
-
 
 /// No internet connection
 const noInternetConnection = 'No internet connection';
@@ -40,9 +40,9 @@ class AppInterceptors extends Interceptor {
 
   @override
   Future<dynamic> onRequest(
-      RequestOptions options,
-      RequestInterceptorHandler handler,
-      ) async {
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
     final connectivityResult = await Connectivity().checkConnectivity();
     if (connectivityResult == ConnectivityResult.none) {
       handler.reject(
@@ -54,20 +54,20 @@ class AppInterceptors extends Interceptor {
       );
     } else if (connectivityResult == ConnectivityResult.mobile ||
         connectivityResult == ConnectivityResult.wifi) {
-     
+      options.headers.addAll(
+          {authenticateHeader: bearer + dotenv.env['api_access_token']!});
 
       options
         ..baseUrl = Api.baseUrl
 
-      /// Redirects true
+        /// Redirects true
         ..followRedirects = true
-      // Set a timeout of 10 seconds for the request
+        // Set a timeout of 10 seconds for the request
         ..connectTimeout = const Duration(seconds: 60)
-      // Receive data with a timeout of some seconds
+        // Receive data with a timeout of some seconds
         ..receiveTimeout = const Duration(seconds: 60)
-      // Send data with a timeout of some seconds
+        // Send data with a timeout of some seconds
         ..sendTimeout = const Duration(seconds: 60);
-
 
       /// Add Header Accepted
       options.headers.addAll({
@@ -80,11 +80,11 @@ class AppInterceptors extends Interceptor {
 
   @override
   Future<void> onError(
-      DioException err,
-      ErrorInterceptorHandler handler,
-      ) async {
+    DioException err,
+    ErrorInterceptorHandler handler,
+  ) async {
     if (err.response?.statusCode == 401) {
-     ///TODO: Handle 401 error
+      ///TODO Handle 401 Unauthorized
     } else {
       return handler.next(err);
     }
