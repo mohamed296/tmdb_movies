@@ -7,7 +7,7 @@ class AssetsPath {
 
   // static String get logo => 'assets/images/logo.svg';
 
-
+   static String get noItemSvg => 'assets/no-item.svg';
  
 
 }

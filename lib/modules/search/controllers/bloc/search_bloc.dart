@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:tmdb_movies/modules/search/model/search_model.dart';
@@ -15,8 +13,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<SearchInitialEvent>((event, emit) => _onSearchInitialEvent(event, emit));
   }
 
-  final List<Result> _results = [];
-  final bool _hasReachedMax = false;
+  List<Result> _results = [];
+  bool _hasReachedMax = false;
 
   final SearchRepository _searchRepository;
 
@@ -34,15 +32,17 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     if (error != null) {
       emit(state.copyWith(status: SearchStatus.error, error: error));
     } else {
-      if (result!.results!.isEmpty) {
-        emit(state.copyWith(hasReachedMax: true));
+      _hasReachedMax = event.page == result!.totalPages;
+      if (event.page == 1) {
+        _results = result.results!;
       } else {
         _results.addAll(result.results!);
-        emit(state.copyWith(
-            status: SearchStatus.loaded,
-            results: List.from(_results),
-            hasReachedMax: _hasReachedMax));
       }
+
+      emit(state.copyWith(
+          status: SearchStatus.loaded,
+          results: List.from(_results),
+          hasReachedMax: _hasReachedMax));
     }
   }
 }

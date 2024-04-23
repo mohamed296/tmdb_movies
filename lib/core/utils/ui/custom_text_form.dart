@@ -1,10 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tmdb_movies/core/config/theme/app_colors.dart';
-
-import '../../config/theme/size.dart';
 
 
 ///  A custom text field that can be used to enter text.
@@ -208,58 +205,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
           fontSize: widget.hintSize ?? 14.0,
         ),
         suffixIconConstraints: const BoxConstraints(maxHeight: 30),
-     
         prefixIconConstraints: BoxConstraints.tight(const Size(48, 22)),
-        suffixIcon: widget.keyboardType == TextInputType.visiblePassword
-            ? GestureDetector(
-                onTap: _changeVisibility,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Icon(
-                    showPassword
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined,
-                    color: widget.controller.text.isEmpty
-                        ? AppColor.color400
-                        : AppColor.primaryColor,
-                    size: 22,
-                  ),
-                ),
-              )
-            : widget.keyboardType != TextInputType.visiblePassword &&
-                    widget.suffixIconSvg != null
-                ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: GestureDetector(
-                      onTap: widget.onIconTap,
-                      child: SvgPicture.asset(
-                        widget.suffixIconSvg!,
-                        height: widget.svgSize,
-                        width: widget.svgSize,
-                        colorFilter: ColorFilter.mode(
-                          widget.svgColorFilter != null
-                              ? widget.svgColorFilter!
-                              : (widget.controller.text.isNotEmpty &&
-                                      widget.readOnly == false)
-                                  ? AppColor.primaryColor
-                                  : AppColor.color800.withOpacity(0.3),
-                          widget.svgBlendMode,
-                        ),
-                      ),
-                    ),
-                  )
-                : widget.suffixIcon != null
-                    ? Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: designPadding),
-                        child: Icon(widget.suffixIcon),
-                      )
-                    : null,
+        prefixIcon: Icon(widget.prefixIcon, color: widget.iconColor),
         fillColor: Colors.white,
         filled: true,
         errorMaxLines: 9,
         errorStyle: TextStyle(color: AppColor.errorColor, fontSize: 12),
-       
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: AppColor.errorColor,
@@ -305,20 +256,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ? TextInputAction.done
           : TextInputAction.next,
       onFieldSubmitted: widget.onFieldSubmitted,
-      onChanged: widget.onChange ??
-          (value) => setState(
-                () {
-                  try {
-                    if (widget.validate!(value) != null) {
-                      setState(() => isError = true);
-                    } else {
-                      setState(() => isError = false);
-                    }
-                  } catch (e) {
-                    log(e.toString());
-                  }
-                },
-              ),
+      onChanged: widget.onChange ,
       validator: widget.validator ??
           (value) {
             if (widget.validate != null) {

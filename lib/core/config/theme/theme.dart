@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tmdb_movies/core/config/theme/app_colors.dart';
 import 'package:tmdb_movies/core/config/theme/size.dart';
 
-
 /// this class is used to set the app theme data and colors for the app
 class AppTheme {
   /// this method is used to get the app theme data
@@ -17,7 +16,7 @@ class AppTheme {
           backgroundColor: AppColor.backgroundColor,
           elevation: 0,
           titleTextStyle: TextStyle(
-            fontFamily: GoogleFonts.poppins().fontFamily,
+            fontFamily: GoogleFonts.inter().fontFamily,
             color: Colors.black,
             fontSize: 16,
             fontWeight: FontWeight.w500,
@@ -33,7 +32,7 @@ class AppTheme {
             // systemStatusBarContrastEnforced: true,
           ),
         ),
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: GoogleFonts.inter().fontFamily,
         switchTheme: SwitchThemeData(
           thumbColor: MaterialStateProperty.all(AppColor.primaryColor),
         ),
@@ -108,25 +107,25 @@ class AppTheme {
         ),
         textTheme: TextTheme(
           // body
-          bodyLarge: GoogleFonts.poppins(),
-          bodyMedium: GoogleFonts.poppins(),
-          bodySmall: GoogleFonts.poppins(),
+          bodyLarge: GoogleFonts.inter(),
+          bodyMedium: GoogleFonts.inter(),
+          bodySmall: GoogleFonts.inter(),
           // headline
-          headlineLarge: GoogleFonts.poppins(),
-          headlineMedium: GoogleFonts.poppins(),
-          headlineSmall: GoogleFonts.poppins(),
+          headlineLarge: GoogleFonts.inter(),
+          headlineMedium: GoogleFonts.inter(),
+          headlineSmall: GoogleFonts.inter(),
           // label
-          labelLarge: GoogleFonts.poppins(),
-          labelMedium: GoogleFonts.poppins(),
-          labelSmall: GoogleFonts.poppins(),
+          labelLarge: GoogleFonts.inter(),
+          labelMedium: GoogleFonts.inter(),
+          labelSmall: GoogleFonts.inter(),
           // display
-          displayLarge: GoogleFonts.poppins(),
-          displayMedium: GoogleFonts.poppins(),
-          displaySmall: GoogleFonts.poppins(),
+          displayLarge: GoogleFonts.inter(),
+          displayMedium: GoogleFonts.inter(),
+          displaySmall: GoogleFonts.inter(),
           // title
-          titleLarge: GoogleFonts.poppins(),
-          titleMedium: GoogleFonts.poppins(),
-          titleSmall: GoogleFonts.poppins(),
+          titleLarge: GoogleFonts.inter(),
+          titleMedium: GoogleFonts.inter(),
+          titleSmall: GoogleFonts.inter(),
         ),
       );
 }

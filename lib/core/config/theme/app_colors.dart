@@ -12,7 +12,7 @@ class AppColor {
   static Color get surfaceColor => const Color(0xFF94A1AE);
 
   /// This method is used to get primary color.
-  static Color get primaryColor => const Color(0xFF00256C);
+  static Color get primaryColor => Colors.black;
 
   /// This method is used to get navbar color.
   static Color get secondaryColor => const Color(0xFF212529);
