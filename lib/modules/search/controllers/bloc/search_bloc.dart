@@ -13,7 +13,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<SearchInitialEvent>((event, emit) => _onSearchInitialEvent(event, emit));
   }
 
-  List<Result> _results = [];
+  List<Movie> _results = [];
   bool _hasReachedMax = false;
 
   final SearchRepository _searchRepository;

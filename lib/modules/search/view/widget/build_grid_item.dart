@@ -11,7 +11,7 @@ class BuildGridItem extends StatelessWidget {
   });
 
   final BuildContext context;
-  final Result item;
+  final Movie item;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class BuildGridItem extends StatelessWidget {
       child: Stack(
         children: [
           BuildImage(posterPath: item.posterPath),
-          BuildItemDetails(context: context, item: item),
+          BuildItemDetails( item: item),
         ],
       ),
     );

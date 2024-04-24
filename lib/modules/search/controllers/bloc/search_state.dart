@@ -9,13 +9,13 @@ part of 'search_bloc.dart';
   });
 
   final SearchStatus status;
-  final List<Result>? results;
+  final List<Movie>? results;
   final String? error;
   final bool hasReachedMax;
 
   SearchState copyWith({
     SearchStatus? status,
-    List<Result>? results,
+    List<Movie>? results,
     String? error,
     bool? hasReachedMax,
   }) {

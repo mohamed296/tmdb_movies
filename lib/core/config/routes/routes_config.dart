@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tmdb_movies/core/config/routes/routes_names.dart';
+import 'package:tmdb_movies/modules/favorites/view/favorite_view.dart';
+import 'package:tmdb_movies/modules/movie/view/movie_view.dart';
+import 'package:tmdb_movies/modules/search/model/search_model.dart';
 import 'package:tmdb_movies/modules/search/view/search_view.dart';
 
 /// Global navigator key to be used by [GoRouter].
@@ -35,15 +38,20 @@ class RoutesConfig {
         name: RouteNames.init,
         path: '/',
         builder: (context, state) => const SearchView(),
-        // redirect: (context, state) async {
-        //   final users = gi<AuthDB>();
-        //   final user = await users.getUser();
-        //   if (user != null) {
-        //     return '/history';
-        //   }
-        //   return null;
-        // },
-        routes: const [],
+        routes: [
+          GoRoute(
+            name: RouteNames.movieDetail,
+            path: 'movie-detail',
+            builder: (context, state) => MovieScreen(
+              movie: state.extra as Movie,
+            ),
+          ),
+          GoRoute(
+            name: RouteNames.favorites,
+            path: 'favorites',
+            builder: (context, state) => const FavoriteView(),
+          ),
+        ],
       ),
     ],
   );

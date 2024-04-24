@@ -1,12 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tmdb_movies/core/config/routes/routes_names.dart';
 
 import 'package:tmdb_movies/core/dependency_injection/get_it.dart';
 import 'package:tmdb_movies/modules/search/controllers/bloc/search_bloc.dart';
 import 'package:tmdb_movies/modules/search/view/widget/build_body.dart';
-
 
 class SearchView extends HookWidget {
   const SearchView({super.key});
@@ -16,7 +16,17 @@ class SearchView extends HookWidget {
     final queryController = useTextEditingController();
     final queryFocus = useFocusNode();
     return Scaffold(
-      appBar: AppBar(title: const Text('TMDB')),
+      appBar: AppBar(
+        title: const Text('TMDB'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              context.pushNamed(RouteNames.favorites);
+            },
+          ),
+        ],
+      ),
       body: BlocProvider(
         create: (_) => gi<SearchBloc>(),
         child:

@@ -24,7 +24,11 @@ class BuildBody extends StatelessWidget {
     return BlocConsumer<SearchBloc, SearchState>(
       listener: (context, state) {
         if (state.status == SearchStatus.error) {
-          EasyLoading.showError(state.error!);
+          EasyLoading.showError(
+            state.error!,
+            dismissOnTap: true,
+            duration: const Duration(seconds: 5),
+          );
         } else if (state.status == SearchStatus.initial) {
           EasyLoading.show(status: 'loading...');
         } else {
@@ -56,10 +60,7 @@ class BuildBody extends StatelessWidget {
             .add(SearchInitialEvent(page: page, query: queryController.text)),
         isMaxReached: state.hasReachedMax,
         builder: (physics, items, shrinkWrap, _) => BuildGridView(
-            context: context,
-            items: items,
-            shrinkWrap: shrinkWrap,
-            physics: physics),
+            items: items, shrinkWrap: shrinkWrap, physics: physics),
       ),
     );
   }

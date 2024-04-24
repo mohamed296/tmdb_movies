@@ -1,3 +1,4 @@
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'search_model.g.dart';
 
@@ -6,7 +7,7 @@ class SearchModel {
   @JsonKey(name: "page")
   final int? page;
   @JsonKey(name: "results")
-  final List<Result>? results;
+  final List<Movie>? results;
   @JsonKey(name: "total_pages")
   final int? totalPages;
   @JsonKey(name: "total_results")
@@ -25,8 +26,11 @@ class SearchModel {
   Map<String, dynamic> toJson() => _$SearchModelToJson(this);
 }
 
+
+@Collection(inheritance: false)
 @JsonSerializable()
-class Result {
+class Movie {
+  Id? isarId;
   @JsonKey(name: "adult")
   final bool? adult;
   @JsonKey(name: "backdrop_path")
@@ -56,7 +60,7 @@ class Result {
   @JsonKey(name: "vote_count")
   final int? voteCount;
 
-  Result({
+  Movie({
     this.adult,
     this.backdropPath,
     this.genreIds,
@@ -73,7 +77,7 @@ class Result {
     this.voteCount,
   });
 
-  factory Result.fromJson(Map<String, dynamic> json) => _$ResultFromJson(json);
+  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ResultToJson(this);
+  Map<String, dynamic> toJson() => _$MovieToJson(this);
 }
