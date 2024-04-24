@@ -32,13 +32,13 @@ Follow these instructions to build and run the app:
 1. Clone the repository:
 
 ```
-git clone https://github.com/your_username/flutter_movie_search_app.git
+git clone https://github.com/mohamed296/tmdb_movies.git
 ```
 
 2. Navigate to the project directory:
 
 ```
-cd flutter_movie_search_app
+cd tmdb_movies
 ```
 
 3. Install dependencies:
@@ -51,10 +51,10 @@ flutter pub get
 
 1. Obtain an API key from TMDB by signing up on their website: [TMDB API](https://www.themoviedb.org/documentation/api)
 
-2. Replace the `YOUR_API_KEY` placeholder in `lib/utils/constants.dart` with your actual TMDB API key:
+2. Replace the `api_access_token` placeholder in `lib/.env` with your actual TMDB API key:
 
 ```dart
-const String TMDB_API_KEY = 'YOUR_API_KEY';
+ api_access_token = 'YOUR_API_KEY';
 ```
 
 ### Running the App
