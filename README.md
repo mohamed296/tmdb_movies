@@ -14,7 +14,7 @@ This Flutter application allows users to search for movies using the TMDB API an
 
 - Cross-platform compatibility (Android)
 - Search for movies using TMDB API
-- View movie details including poster, title, overview, and cast
+- View movie details including poster, title, overview
 - Add and view favorite movies
 - Responsive design for different screen sizes
 
@@ -71,7 +71,7 @@ flutter run
 
 1. **Search Screen**: Enter a movie title in the search field and press Enter. The app will display a grid of search results. Click on a movie to view its details.
 
-2. **Movie Details Screen**: Displays detailed information about the selected movie, including the poster, title, overview, and cast.
+2. **Movie Details Screen**: Displays detailed information about the selected movie, including the poster, title, overview.
 
 3. **Favorites Screen**: View a list of your favorite movies. Click on a movie to view its details.
 
@@ -81,7 +81,29 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```
+MIT License
+
+Copyright (c) 2024 Mohamed Abdelkhalek.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 ## Acknowledgments
 
