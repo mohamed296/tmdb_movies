@@ -4,7 +4,7 @@ This Flutter application allows users to search for movies using the TMDB API an
 
 ## Screenshots
 
-![Search Screen](screenshots/search_screen.png) ![Movie Details Screen](screenshots/movie_details_screen.png) ![Favorites Screen](screenshots/favorites_screen.png)
+![Search Screen](https://github.com/mohamed296/tmdb_movies/assets/58604668/38c24799-9f64-4a9a-9c6a-d30d4833f061) ![Movie Details Screen](https://github.com/mohamed296/tmdb_movies/assets/58604668/2dcb5ac5-a9eb-43c7-a602-5507bc0871c6) ![Favorites Screen](https://github.com/mohamed296/tmdb_movies/assets/58604668/a0709653-983a-40dc-82ab-5cdeed577afe)
 
 ## Features
 
