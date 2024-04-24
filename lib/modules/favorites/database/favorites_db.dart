@@ -1,6 +1,6 @@
 import 'package:isar/isar.dart';
 import 'package:tmdb_movies/core/dependency_injection/get_it.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 
 class FavoritesDB {
   final Isar isar = gi<Isar>();

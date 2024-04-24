@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:tmdb_movies/core/apis/api_class.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 
 class SearchRepository {
   SearchRepository({required Dio dio}) : _dio = dio;
 
   final Dio _dio;
-  Future<(String?, SearchModel?)> searchMovies(
+  Future<(String?, MoviesModel?)> searchMovies(
       {required String query, int? page = 1}) async {
     try {
       final response = await _dio.get(
@@ -18,7 +18,27 @@ class SearchRepository {
           'page': page,
         },
       );
-      final result = SearchModel.fromJson(response.data);
+      final result = MoviesModel.fromJson(response.data);
+
+      return (null, result);
+    } on DioException catch (e) {
+      return (_handleDioError(e), null);
+    } catch (e) {
+      return (e.toString(), null);
+    }
+  }
+
+  Future<(String?, MoviesModel?)> topMovies({int? page = 1}) async {
+    try {
+      final response = await _dio.get(
+        Api.topRatedMovie,
+        queryParameters: {
+          'include_adult': false,
+          'language': 'en-US',
+          'page': page,
+        },
+      );
+      final result = MoviesModel.fromJson(response.data);
 
       return (null, result);
     } on DioException catch (e) {
@@ -53,7 +73,7 @@ class SearchRepository {
 
       case DioExceptionType.unknown:
         errorDescription =
-            "Connection to API server failed due to internet connection";
+            "Connection to API server failed due to internet connection. Enjoy with your favorite movies";
         break;
       case DioExceptionType.badCertificate:
         errorDescription = "badCertificate";

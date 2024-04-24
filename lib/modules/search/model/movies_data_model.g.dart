@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'search_model.dart';
+part of 'movies_data_model.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator
@@ -2445,7 +2445,7 @@ extension MovieQueryProperty on QueryBuilder<Movie, Movie, QQueryProperty> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-SearchModel _$SearchModelFromJson(Map<String, dynamic> json) => SearchModel(
+MoviesModel _$MoviesModelFromJson(Map<String, dynamic> json) => MoviesModel(
       page: json['page'] as int?,
       results: (json['results'] as List<dynamic>?)
           ?.map((e) => Movie.fromJson(e as Map<String, dynamic>))
@@ -2454,7 +2454,7 @@ SearchModel _$SearchModelFromJson(Map<String, dynamic> json) => SearchModel(
       totalResults: json['total_results'] as int?,
     );
 
-Map<String, dynamic> _$SearchModelToJson(SearchModel instance) =>
+Map<String, dynamic> _$MoviesModelToJson(MoviesModel instance) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results,

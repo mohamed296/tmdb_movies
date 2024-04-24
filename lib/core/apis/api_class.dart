@@ -5,4 +5,7 @@ class Api {
 
   /// search movie
   static String get searchMovie => '/search/movie';
+
+  /// top rated movie
+  static String get topRatedMovie => '/movie/top_rated';
 }

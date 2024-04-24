@@ -1,9 +1,9 @@
 import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
-part 'search_model.g.dart';
+part 'movies_data_model.g.dart';
 
 @JsonSerializable()
-class SearchModel {
+class MoviesModel {
   @JsonKey(name: "page")
   final int? page;
   @JsonKey(name: "results")
@@ -13,19 +13,18 @@ class SearchModel {
   @JsonKey(name: "total_results")
   final int? totalResults;
 
-  SearchModel({
+  MoviesModel({
     this.page,
     this.results,
     this.totalPages,
     this.totalResults,
   });
 
-  factory SearchModel.fromJson(Map<String, dynamic> json) =>
-      _$SearchModelFromJson(json);
+  factory MoviesModel.fromJson(Map<String, dynamic> json) =>
+      _$MoviesModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SearchModelToJson(this);
+  Map<String, dynamic> toJson() => _$MoviesModelToJson(this);
 }
-
 
 @Collection(inheritance: false)
 @JsonSerializable()

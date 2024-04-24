@@ -6,7 +6,7 @@ import 'package:tmdb_movies/core/utils/dio/dio_helper.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tmdb_movies/modules/favorites/database/favorites_db.dart';
 import 'package:tmdb_movies/modules/search/controllers/bloc/search_bloc.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 import 'package:tmdb_movies/modules/search/repository/search_repository.dart';
 
 /// GetIt is a simple service locator for Dart and Flutter projects. [GetIt]

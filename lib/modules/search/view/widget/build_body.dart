@@ -47,17 +47,26 @@ class BuildBody extends StatelessWidget {
           ),
         ),
         showLoading: state.status == SearchStatus.loading,
-        showError: state.status == SearchStatus.error,
-        listOfData: state.results ?? [],
+        showError: state.status == SearchStatus.errorPagination,
+        listOfData: (state.results ?? []).isEmpty
+            ? state.topMoviesResults ?? []
+            : state.results ?? [],
         emptyView: BuildEmptyView(context: context),
         errorWidget: (page) => ErrorPaginationWidget(
           state: state,
           page: page,
           queryController: queryController,
         ),
-        onLoadMore: (page) => context
-            .read<SearchBloc>()
-            .add(SearchInitialEvent(page: page, query: queryController.text)),
+        onLoadMore: (page) {
+          if ((state.results ?? []).isEmpty) {
+            context.read<SearchBloc>().add(GetTopMoviesEvent(
+                  page: page,
+                ));
+          } else {
+            context.read<SearchBloc>().add(
+                SearchInitialEvent(page: page, query: queryController.text));
+          }
+        },
         isMaxReached: state.hasReachedMax,
         builder: (physics, items, shrinkWrap, _) => BuildGridView(
             items: items, shrinkWrap: shrinkWrap, physics: physics),

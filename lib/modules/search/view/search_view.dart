@@ -18,17 +18,9 @@ class SearchView extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('TMDB'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.favorite),
-            onPressed: () {
-              context.pushNamed(RouteNames.favorites);
-            },
-          ),
-        ],
       ),
       body: BlocProvider(
-        create: (_) => gi<SearchBloc>(),
+        create: (_) => gi<SearchBloc>()..add(const GetTopMoviesEvent()),
         child:
             BuildBody(queryController: queryController, queryFocus: queryFocus),
       ),

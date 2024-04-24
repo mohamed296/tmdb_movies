@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 import 'package:tmdb_movies/modules/search/view/widget/build_image.dart';
 import 'package:tmdb_movies/modules/search/view/widget/build_item_details.dart';
 

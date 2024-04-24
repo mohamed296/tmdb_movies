@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:tmdb_movies/core/dependency_injection/get_it.dart';
 import 'package:tmdb_movies/modules/favorites/database/favorites_db.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 
 class BuildActions extends HookWidget {
   const BuildActions({
@@ -16,9 +16,14 @@ class BuildActions extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final isFavorite = useState(false);
+    final movieIsarId = useState<int?>(movie.isarId);
 
     useEffect(() {
       final subscription = gi<FavoritesDB>().moviesStream.listen((movies) {
+        final favorite = movies.firstWhere(
+          (m) => m.id == movie.id,
+        );
+        movieIsarId.value = favorite.isarId;
         isFavorite.value = movies.any((m) => m.id == movie.id);
       }, onError: (error) {
         log('Error listening to moviesStream: $error');
@@ -48,7 +53,7 @@ class BuildActions extends HookWidget {
               ),
               onPressed: () async {
                 if (isFavorite.value) {
-                  await gi<FavoritesDB>().deleteMovie(movie.isarId!);
+                  await gi<FavoritesDB>().deleteMovie(movieIsarId.value!);
                 } else {
                   await gi<FavoritesDB>().saveMovie(movie);
                 }

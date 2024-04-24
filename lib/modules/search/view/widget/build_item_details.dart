@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:tmdb_movies/core/config/routes/routes_names.dart';
 import 'package:tmdb_movies/core/config/theme/size.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 
 class BuildItemDetails extends StatelessWidget {
   const BuildItemDetails({

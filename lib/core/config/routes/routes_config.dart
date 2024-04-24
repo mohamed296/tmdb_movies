@@ -3,8 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:tmdb_movies/core/config/routes/routes_names.dart';
 import 'package:tmdb_movies/modules/favorites/view/favorite_view.dart';
 import 'package:tmdb_movies/modules/movie/view/movie_view.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 import 'package:tmdb_movies/modules/search/view/search_view.dart';
+import 'package:tmdb_movies/nav.dart';
 
 /// Global navigator key to be used by [GoRouter].
 final globalNavigatorKey = GlobalKey<NavigatorState>();
@@ -37,7 +38,7 @@ class RoutesConfig {
       GoRoute(
         name: RouteNames.init,
         path: '/',
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) => const NavBar(),
         routes: [
           GoRoute(
             name: RouteNames.movieDetail,

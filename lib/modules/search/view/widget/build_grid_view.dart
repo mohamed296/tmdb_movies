@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_movies/core/config/theme/size.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 import 'package:tmdb_movies/modules/search/view/widget/build_grid_item.dart';
 
 class BuildGridView extends StatelessWidget {

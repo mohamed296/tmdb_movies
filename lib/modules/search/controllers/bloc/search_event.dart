@@ -13,3 +13,9 @@ class SearchInitialEvent extends SearchEvent {
 
   const SearchInitialEvent({required this.query, this.page = 1});
 }
+
+class GetTopMoviesEvent extends SearchEvent {
+  final int? page;
+
+  const GetTopMoviesEvent({this.page = 1});
+}

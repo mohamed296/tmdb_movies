@@ -7,7 +7,7 @@ import 'package:tmdb_movies/core/config/theme/app_colors.dart';
 import 'package:tmdb_movies/core/config/theme/size.dart';
 import 'package:tmdb_movies/modules/movie/view/widget/build_actions.dart';
 import 'package:tmdb_movies/modules/movie/view/widget/build_movie_information.dart';
-import 'package:tmdb_movies/modules/search/model/search_model.dart';
+import 'package:tmdb_movies/modules/search/model/movies_data_model.dart';
 
 class MovieScreen extends StatelessWidget {
   const MovieScreen({
